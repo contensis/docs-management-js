@@ -71,7 +71,7 @@
 * [Delete a node](/nodes/delete-a-node.md)
 * [Order nodes](/nodes/order-nodes.md)
 
-***
+<!-- ***
 * Blocks
 * [Push a block](/blocks/push-a-block.md)
 * [Get a block](/blocks/get-a-block.md)
@@ -81,7 +81,7 @@
 * [Publish a block version](/blocks/publish-a-block-version.md)
 * [Rollback a block version](/blocks/rollback-a-block-version.md)
 * [Mark a block version as broken](/blocks/mark-block-version-broken.md)
-* [Block statuses](/blocks/block-statuses.md)
+* [Block statuses](/blocks/block-statuses.md) -->
 
 ***
 * Roles
@@ -124,7 +124,7 @@
 * [PagedList](/model/paged-list.md)
 * [PageOptions](/model/page-options.md)
 * [Workflow trigger](/model/workflow-trigger.md)
-* [Block](/model/block.md)
-* [Block version](/model/block-version.md)
+<!-- * [Block](/model/block.md)
+* [Block version](/model/block-version.md) -->
 
 <!-- * [AssetFile](/model/assetfile.md) -->
