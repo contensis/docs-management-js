@@ -9,10 +9,10 @@ A EntryGetOptions is a structure that is used to describe details for requesting
 
 | Name | Type | Format | Description |
 |:-|:-|:-|:-|
-| id | string |  | The content type identifier. |
-| versionStatus | string |  | The version status, either *published* or *latest*. The default is *latest*. |
-| version | number | {Major}.{Minor} | The version number of the resource. |
-| language | string | [LanguageCode](/key-concepts/localization.md) | The variation language code.     
+| id | string |  | The content type identifier |
+| versionStatus | string |  | The version status, either *published* or *latest*. The default is *latest* |
+| version | number | {Major}.{Minor} | The version number of the resource |
+| language | string | [LanguageCode](/key-concepts/localization.md) | The variation language code |
 
 ## Remarks
 

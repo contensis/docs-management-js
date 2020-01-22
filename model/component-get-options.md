@@ -9,9 +9,9 @@ A ComponentGetOptions is a structure that is used to describe details for reques
 
 | Name | Type | Format | Description |
 |:-|:-|:-|:-|
-| id | string |  | The component identifier. |
-| versionStatus | string |  | The version status, either *published* or *latest*. The default is *latest*. |
-| version | number | {Major}.{Minor} | The version number of the resource. |
+| id | string |  | The component identifier |
+| versionStatus | string |  | The version status, either *published* or *latest*. The default is *latest* |
+| version | number | {Major}.{Minor} | The version number of the resource |
 
 
 ## Remarks
