@@ -20,8 +20,8 @@ A single entry can be assigned to a node, separating the responsibility of navig
 | entryId               | string      | [GUID](https://docs.microsoft.com/en-us/dotnet/api/system.guid) | The identifier of the referenced entry as a 128 bit GUID                                                                                                               |
 | restrictedToLanguages | stringArray |                                                                 | An array of all the languages supported by the node                                                                                                                    |
 | childCount            | number      |                                                                 | The count of child nodes                                                                                                                                               |
-| isCanonical           | boolean     |                                                                 | 'true' if the node represents the canonical path for the associated entry; 'false' otherwise                                                                           |
-| includeInMenu         | boolean     |                                                                 | 'true' if the node should be included in menus; 'false' otherwise. Defaults to 'true'. Does not stop the node from being navigable                                     |
+| isCanonical           | boolean     |                                                                 | *true* if the node represents the canonical path for the associated entry; *false* otherwise                                                                           |
+| includeInMenu         | boolean     |                                                                 | *true* if the node should be included in menus; *false* otherwise. Defaults to *true*. Does not stop the node from being navigable                                     |
 
 ## Example
 
