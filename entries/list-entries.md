@@ -15,7 +15,7 @@ A Promise that will resolve with a [PagedList](/model/paged-list.md) that contai
 
 ```js
 client.entries.list({    
-    contentType: 'movie',
+    contentTypeId: 'movie',
     versionStatus: 'published',
     language: 'fr-FR',
     order: ['entryTitle'],
