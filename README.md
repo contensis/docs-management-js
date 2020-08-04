@@ -28,7 +28,6 @@ The API is a RESTful service to ensure maximum compatibility, delivering content
 - [Get a content type](/content-types/get-a-content-type.md)
 - [Create a content type](/content-types/create-a-content-type.md)
 - [Update a content type](/content-types/update-a-content-type.md)
-- [Add a component to a content type](/components/add-a-component-to-a-content-type.md)
 - [List content types](/content-types/list-content-types.md)
 - [Delete a content type](/content-types/delete-a-content-type.md)
 - [Publish a content type](/content-types/invoking-workflow.md)
@@ -38,6 +37,7 @@ The API is a RESTful service to ensure maximum compatibility, delivering content
 - [Get a component](/components/get-a-component.md)
 - [Create a component](/components/create-a-component.md)
 - [Update a component](/components/update-a-component.md)
+- [Add a component to a content type](/components/add-a-component-to-a-content-type.md)
 - [List components](/components/list-components.md)
 - [Delete a component](/components/delete-a-component.md)
 - [Publish a component](/components/invoking-workflow.md)
@@ -62,6 +62,27 @@ The API is a RESTful service to ensure maximum compatibility, delivering content
 - [Move a node](/nodes/move-a-node.md)                   
 - [Delete a node](/nodes/delete-a-node.md)               
 - [Order nodes](/nodes/order-nodes.md)                   
+
+### Users and groups
+* [Get a user](security/users-and-groups/get-a-user.md)
+* [List users](security/users-and-groups/list-users.md)
+* [Create a user](security/users-and-groups/create-a-user.md)
+* [Update a user](security/users-and-groups/update-a-user.md)
+* [Delete a user](security/users-and-groups/delete-a-user.md)
+* [Update a user password](security/users-and-groups/update-user-password.md)
+* [Check group membership](security/users-and-groups/check-group-membership.md)
+* [Get a group](security/users-and-groups/get-a-group.md)
+* [List groups](security/users-and-groups/list-groups.md)
+* [Create a group](security/users-and-groups/create-a-group.md)
+* [Update a group](security/users-and-groups/update-a-group.md)
+* [Delete a group](security/users-and-groups/delete-a-group.md)
+* [Get users in group](security/users-and-groups/get-users-in-group.md)
+* [Get user group membership](security/users-and-groups/get-user-group-membership.md)
+* [Get child groups in group](security/users-and-groups/get-groups-in-group.md)
+* [Add user to a group](security/users-and-groups/add-user-to-group.md)
+* [Remove user from a group](security/users-and-groups/remove-user-from-group.md)
+* [Add child group to a group](security/users-and-groups/add-group-to-group.md)
+* [Remove child group from a group](security/users-and-groups/remove-group-from-group.md)
 
 ### Roles
 

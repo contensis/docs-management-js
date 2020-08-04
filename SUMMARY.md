@@ -13,12 +13,6 @@
 * [Workflow](/key-concepts/workflow.md)
 
 ***
-* Security
-* [Authentication](security/authentication.md)
-* [Authorization](security/authorization.md)
-* [Scopes](security/scopes.md)
-
-***
 * Projects
 * [Get a project](/projects/get-a-project.md)
 * [Create a project](/projects/create-a-project.md)
@@ -84,6 +78,32 @@
 * [Block statuses](/blocks/block-statuses.md)
 
 ***
+* Security
+* [Authentication](security/authentication.md)
+* [Authorization](security/authorization.md)
+* [Scopes](security/scopes.md)
+
+* Users and groups
+* [Get a user](security/users-and-groups/get-a-user.md)
+* [List users](security/users-and-groups/list-users.md)
+* [Create a user](security/users-and-groups/create-a-user.md)
+* [Update a user](security/users-and-groups/update-a-user.md)
+* [Delete a user](security/users-and-groups/delete-a-user.md)
+* [Update a user password](security/users-and-groups/update-user-password.md)
+* [Check group membership](security/users-and-groups/check-group-membership.md)
+* [Get a group](security/users-and-groups/get-a-group.md)
+* [List groups](security/users-and-groups/list-groups.md)
+* [Create a group](security/users-and-groups/create-a-group.md)
+* [Update a group](security/users-and-groups/update-a-group.md)
+* [Delete a group](security/users-and-groups/delete-a-group.md)
+* [Get users in group](security/users-and-groups/get-users-in-group.md)
+* [Get user group membership](security/users-and-groups/get-user-group-membership.md)
+* [Get child groups in group](security/users-and-groups/get-groups-in-group.md)
+* [Add user to a group](security/users-and-groups/add-user-to-group.md)
+* [Remove user from a group](security/users-and-groups/remove-user-from-group.md)
+* [Add child group to a group](security/users-and-groups/add-group-to-group.md)
+* [Remove child group from a group](security/users-and-groups/remove-group-from-group.md)
+
 * Roles
 * [Get a role](/roles/get-a-role.md)
 * [Create a role](/roles/create-a-role.md)
@@ -91,7 +111,6 @@
 * [List roles](/roles/list-roles.md)
 * [Delete a role](/roles/delete-a-role.md)
 
-***
 * Permissions
 * [Overview](/permissions/overview.md)
 * [Get permissions for a resource](/permissions/get-permissions-for-a-resource.md)
@@ -99,32 +118,39 @@
 
 ***
 * Models
-* [Config](/model/config.md)
-* [Project](/model/project.md)
-* [Node](/model/node.md)
+* [Block](/model/block.md)
+* [Block version](/model/block-version.md)
+* [Colors](/model/colors.md)
 * [Component](/model/component.md)
     * [ComponentGetOptions](/model/component-get-options.md)
+* [Composed fields](/model/composed.md)
+* [Config](/model/config.md)
 * [Content type](/model/content-type.md)
     * [ContentTypeGetOptions](/model/content-type-get-options.md)
     * [ContentTypeListOptions](/model/content-type-list-options.md)
 * [Content type group](/model/content-type-group.md)
+* [DateRange](/model/date-range.md)
 * [Entry](/model/entry.md)
     * [EntryGetOptions](/model/entry-get-options.md)
     * [EntryListOptions](/model/entry-list-options.md)
-* [Version](/model/version.md)
-* [Composed fields](/model/composed.md)
-* [Component](/model/component.md)
-* [DateRange](/model/date-range.md)
+* [Group](/model/group.md)
+    * [GroupListOptions](/model/group-list-options.md)
 * [Image](/model/image.md)
 * [ImageTransformations](/model/image-transformations.md)
 * [Link](/model/link.md)
+* [Localization](/localization.md)
 * [Location](/model/location.md)
-* [Quote](/model/quote.md)
-* [Role](/model/role.md)
+* [Node](/model/node.md)
 * [PagedList](/model/paged-list.md)
 * [PageOptions](/model/page-options.md)
+* [Project](/model/project.md)
+* [Quote](/model/quote.md)
+* [Role](/model/role.md)
+* [User](/model/user.md)
+    * [UserGroupOptions](/model/user-group-options.md)
+    * [UserListOptions](/model/user-list-options.md)
+    * [UserUpdatePasswordOptions](/model/user-update-password-options.md)
+* [Version](/model/version.md)
 * [Workflow trigger](/model/workflow-trigger.md)
-* [Block](/model/block.md)
-* [Block version](/model/block-version.md)
 
 <!-- * [AssetFile](/model/assetfile.md) -->
