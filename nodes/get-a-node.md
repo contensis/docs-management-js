@@ -3,28 +3,21 @@ description: Get a node.
 ---
 # Get a node
 
-Get a node by ID.
+Get a node by id.
 
-<span class="label label--get">GET</span> /api/management/projects/**{projectId}**/nodes/**{nodeId}**/
+***get(id: string): Promise&lt;Node&gt;***
 
-## Parameters
+### Returns
+A Promise that will resolve with a [Node](/model/node.md) object.
 
-| Name | Parameter type | Type | Format | Description |
-| :- | :- | :- | :- | :- |
-| projectId | path | string |  | The project identifier, e.g. "movieDb". Found in the project overview screen of the management console |
-| nodeId | query | string | [GUID](https://docs.microsoft.com/en-us/dotnet/api/system.guid) | The id of the node to retrieve |
+### Example
 
-## Example request
-
-```http
-GET: /api/management/projects/website/nodes/d6bdea41-729c-4a07-85bf-a392aa0afc2b
+```js
+client.nodes.get('c31111e7-76f7-46dd-93fb-cbf81a853a37')
+  .then(result => {      
+    console.log('API call result: ', result);              
+  })
+  .catch(error => {
+    console.log('API call fetch error: ', error);      
+});
 ```
-
-## Response messages
-
-| HTTP status code | Reason              | Response model                   |
-|:-----------------|:--------------------|:---------------------------------|
-| 200              | Success             | [Node](/model/node.md)           |
-| 401              | Unauthorized        | [Error](/key-concepts/errors.md) |
-| 404              | NotFound            | [Error](/key-concepts/errors.md) |
-| 500              | InternalServerError | [Error](/key-concepts/errors.md) |

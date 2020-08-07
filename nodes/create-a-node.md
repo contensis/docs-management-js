@@ -3,68 +3,61 @@ description: Creates a new node.
 ---
 # Create a node
 
-Creates a new child node under a specified parent node .
+Creates a new child node under a specified parent node.
 
-<span class="label label--post">POST</span> /api/management/projects/**{projectId}**/nodes/**{parentNodeId}**/children
+***create(node: Node): Promise&lt;Node&gt;***
 
-## Parameters
+### Returns
+A Promise that will resolve with a [Node](/model/node.md) object.
 
-| Name | Parameter type | Type | Format | Description |
-| :- | :- | :- | :- | :- |
-| projectId | path | string |  | The project identifier, e.g. "movieDb". Found in the project overview screen of the management console. |
-| parentNodeId | path | string | [GUID](https://docs.microsoft.com/en-us/dotnet/api/system.guid) | The parent node identifier which the new node will be created as a child |
-| node | body | object | [Node](/model/node.md) | The node object to created |
+### Example
 
-## Example request
-
-```json
-POST: /api/management/projects/website/nodes/f3322e4f-72b5-4064-be88-fcfed6c82635/children
-
-{
-    "id": "d6bdea41-729c-4a07-85bf-a392aa0afc2b",
-    "parentId": "f3322e4f-72b5-4064-be88-fcfed6c82635",
+```js
+let node = {
+    "parentId": '7840f70a-b842-42ea-bfac-148a3b772ac8',
     "displayName": {
-        "en-GB": "Tiger Escaped From Zoo",
-        "fr-FR": "Tigre échappé du zoo"
+      "en-GB": "Tiger Escaped From Zoo",
+      "fr-FR": "Tigre échappé du zoo"
     },
     "slug": {
-        "en-GB": "tiger-escaped-from-zoo",
-    "fr-FR": "tigre-s-est-echappe-du-zoo"
+      "en-GB": "tiger-escaped-from-zoo",
+      "fr-FR": "tigre-s-est-echappe-du-zoo"
     },
     "restrictedToLanguages": [
-        "en-GB",
-        "fr-FR"
+      "en-GB",
+      "fr-FR"
     ],
-    "entryId": "9272ac06-1b3a-4e68-ac1b-a05828b0f7d6",
+    "entryId": '273b8bfa-5dfe-409b-872d-95e6a72f6bc9',    
     "includeInMenu": true
-}
+};
+client.nodes.create(node)
+  .then(result => {      
+    console.log('API call result: ', result);              
+  })
+  .catch(error => {
+    console.log('API call fetch error: ', error);      
+});
 ```
 
 ## Minimum request
 
-A node can be created by posting only the title:
+A node can be created by specifying only the title and the parent node:
 
-```json
-POST: /api/management/projects/website/nodes/f3322e4f-72b5-4064-be88-fcfed6c82635/children
-
-{
-    "parentId": "f3322e4f-72b5-4064-be88-fcfed6c82635",
+```js
+let node = {
+    "parentId": '7840f70a-b842-42ea-bfac-148a3b772ac8',
     "displayName": {
         "en-GB": "Tiger Escaped From Zoo"
     }
-}
+};
+client.nodes.create(node)
+  .then(result => {      
+    console.log('API call result: ', result);              
+  })
+  .catch(error => {
+    console.log('API call fetch error: ', error);      
+});
 ```
-
-## Response messages
-
-| HTTP status code | Reason                | Response model                   |
-|:-----------------|:----------------------|:---------------------------------|
-| 201              | Created               | [Node](/model/node.md)           |
-| 401              | Unauthorized          | [Error](/key-concepts/errors.md) |
-| 404              | NotFound              | [Error](/key-concepts/errors.md) |
-| 409              | ResourceAlreadyExists | [Error](/key-concepts/errors.md) |
-| 422              | ValidationError       | [Error](/key-concepts/errors.md) |
-| 500              | InternalServerError   | [Error](/key-concepts/errors.md) |
 
 ## Validations
 

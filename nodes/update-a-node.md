@@ -5,23 +5,17 @@ description: Updates a node.
 
 Updates a node.
 
-<span class="label label--post">PUT</span> /api/management/projects/**{projectId}**/nodes/**{nodeId}**
+***update(node: Node): Promise&lt;Node&gt;***
 
-## Parameters
+### Returns
+A Promise that will resolve with a [Node](/model/node.md) object.
 
-| Name | Parameter type | Type | Format | Description |
-| :- | :- | :- | :- | :- |
-| projectId | path | string |  | The project identifier, e.g. "movieDb". Found in the project overview screen of the management console. |
-| nodeId | path | string | [GUID](https://docs.microsoft.com/en-us/dotnet/api/system.guid) | The identifier of the node to update |
-| node | body | object | [Node](/model/node.md) | The node object to update |
+### Example
 
-## Example request
-
-```json
-PUT: /api/management/projects/website/nodes/d6bdea41-729c-4a07-85bf-a392aa0afc2b
-
-{
-    "title": {
+```js
+let node = {
+    "id": "d6bdea41-729c-4a07-85bf-a392aa0afc2b",
+    "displayName": {
 		"en-GB": "Tiger Escaped From Zoo",
 		"fr-FR": "Tigre échappé du zoo"
 	},
@@ -30,19 +24,15 @@ PUT: /api/management/projects/website/nodes/d6bdea41-729c-4a07-85bf-a392aa0afc2b
 		"fr-FR": "tigre-s-est-echappe-du-zoo"
 	},
 	"entryId": "9272ac06-1b3a-4e68-ac1b-a05828b0f7d6"
-}
+};
+client.nodes.update(node)
+  .then(result => {      
+    console.log('API call result: ', result);              
+  })
+  .catch(error => {
+    console.log('API call fetch error: ', error);      
+});
 ```
-
-## Response messages
-
-| HTTP status code | Reason                | Response model                   |
-|:-----------------|:----------------------|:---------------------------------|
-| 200              | OK                    | [Node](/model/node.md)           |
-| 401              | Unauthorized          | [Error](/key-concepts/errors.md) |
-| 404              | NotFound              | [Error](/key-concepts/errors.md) |
-| 409              | ResourceAlreadyExists | [Error](/key-concepts/errors.md) |
-| 422              | ValidationError       | [Error](/key-concepts/errors.md) |
-| 500              | InternalServerError   | [Error](/key-concepts/errors.md) |
 
 ## Validations
 
@@ -149,4 +139,3 @@ A node slug must be unique for a language on a given parent node. If you attempt
     "type": "Validation"
 }
 ```
-

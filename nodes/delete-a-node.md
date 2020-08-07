@@ -3,28 +3,18 @@ description: Deletes a node.
 ---
 # Delete a node
 
-Deletes a node by ID.
+Deletes a node by id.
 
-<span class="label label--delete">DELETE</span> /api/management/projects/**{projectId}**/nodes/**{nodeId}**/
+***delete(id: string): Promise&lt;void&gt;***
 
-## Parameters
+### Example
 
-| Name | Parameter type | Type | Format | Description |
-| :- | :- | :- | :- | :-|
-| projectId | path | string |  | The project identifier, e.g. "movieDb". Found in the project overview screen of the management console |
-| nodeId | query | string | [GUID](https://docs.microsoft.com/en-us/dotnet/api/system.guid) | The id of the node to delete |
-
-## Example request
-
-```http
-DELETE: /api/management/projects/website/nodes/d6bdea41-729c-4a07-85bf-a392aa0afc2b
+```js
+client.nodes.delete('c31111e7-76f7-46dd-93fb-cbf81a853a37')
+  .then(result => {      
+    console.log('API call was successful');              
+  })
+  .catch(error => {
+    console.log('API call fetch error: ', error);      
+});
 ```
-
-## Response messages
-
-| HTTP status code | Reason              | Response model                   |
-|:-----------------|:--------------------|:---------------------------------|
-| 204              | Success             | No content                       |
-| 401              | Unauthorized        | [Error](/key-concepts/errors.md) |
-| 404              | NotFound            | [Error](/key-concepts/errors.md) |
-| 500              | InternalServerError | [Error](/key-concepts/errors.md) |

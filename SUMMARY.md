@@ -141,6 +141,7 @@
 * [Localization](/localization.md)
 * [Location](/model/location.md)
 * [Node](/model/node.md)
+    * [NodeGetChildrenOptions](/model/node-get-children-options.md)
 * [PagedList](/model/paged-list.md)
 * [PageOptions](/model/page-options.md)
 * [Project](/model/project.md)
