@@ -2,20 +2,15 @@
 
 Creates a new role.
 
-<span class="label label--post">POST</span> /api/management/projects/**{projectId}**/security/roles
+***create(role: Role): Promise&lt;Role&gt;***
 
-### Parameters
+### Returns
+A Promise that will resolve with a [Role](/model/role.md) object.
 
-| Name      | Parameter type | Type   | Format | Description                                                                                             |
-|:----------|:---------------|:-------|:-------|:--------------------------------------------------------------------------------------------------------|
-| projectId | path           | string |        | The project identifier, e.g. "movieDb". Found in the project overview screen of the management console. |
+### Example
 
-### Example request
-
-```json
-POST: /api/management/projects/movieDb/security/roles/
-
-{
+```js
+let role = {
     "name": {
         "en-GB": "Movie Editors"
     },
@@ -31,27 +26,22 @@ POST: /api/management/projects/movieDb/security/roles/
                 "actions": ["sys.update", "awaitingApproval.revoke"]
             }
         ],
-        "contentTypes": [ ]
+        "contentTypes": []
     },
     "assignments": {
-        "users": [ "a.user" ],
-        "groups": [ "Movie Editors" ],
-        "apiKeys": [ "Movie Import" ]
+        "users": ["a.user"],
+        "groups": ["Movie Editors"],
+        "apiKeys": ["Movie Import"]
     }
-}
+};
+client.roles.create(role)
+  .then(result => {      
+    console.log('API call result: ', result);              
+  })
+  .catch(error => {
+    console.log('API call fetch error: ', error);      
+});
 ```
-
-### Response message
-
-| HTTP status code | Reason | Response model |
-|:-|:-|:-|
-| 201 | Created | [Role](/model/role.md) |
-| 401 | Unauthorized | [Error](/key-concepts/errors.md) |
-| 403 | Forbidden | [Error](/key-concepts/errors.md) |
-| 404 | NotFound | [Error](/key-concepts/errors.md) |
-| 422 | ValidationError | [Error](/key-concepts/errors.md) |
-| 500 | InternalServerError | [Error](/key-concepts/errors.md) |
-
 ### Validations
 
 #### Project does not exist

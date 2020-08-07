@@ -1,30 +1,21 @@
 ## Delete a role
 
-Deletes a role by its Id.
+Deletes a role by its id.
 
-<span class="label label--delete">DELETE</span> /api/management/projects/**{projectId}**/security/roles/**{roleId}**
+***delete(id: string): Promise&lt;void&gt;***
 
-### Parameters
+### Example
 
-| Name      | Parameter type | Type   | Format | Description                                                                                             |
-|:----------|:---------------|:-------|:-------|:--------------------------------------------------------------------------------------------------------|
-| projectId | path           | string |        | The project identifier, e.g. "movieDb". Found in the project overview screen of the management console. |
-| roleId    | path           | string | GUID   | The role identifier.                                                                                    |
-
-### Example request
-
-```http
-DELETE: /api/management/projects/movieDb/security/roles/71f73a9b-2a13-4d63-bcc1-e8ee5047b01c
+```js
+client.roles.delete('71f73a9b-2a13-4d63-bcc1-e8ee5047b01c')
+  .then(result => {      
+    console.log('API call was successful');              
+  })
+  .catch(error => {
+    console.log('API call fetch error: ', error);      
+});
 ```
 
-### Response message
-
-| HTTP status code | Reason              | Response model                   |
-|:-----------------|:--------------------|:---------------------------------|
-| 204              | Success             |                                  |
-| 403              | Forbidden           | [Error](/key-concepts/errors.md) |
-| 404              | NotFound            | [Error](/key-concepts/errors.md) |
-| 500              | InternalServerError | [Error](/key-concepts/errors.md) |
 ### Validations
 
 #### Project does not exist

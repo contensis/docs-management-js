@@ -2,22 +2,17 @@
 
 Updates an existing role.
 
-<span class="label label--post">PUT</span> /api/management/projects/**{projectId}**/security/roles/**{roleId}**
+***update(role: Role): Promise&lt;Role&gt;***
 
-### Parameters
+### Returns
+A Promise that will resolve with a [Role](/model/role.md) object.
 
-| Name      | Parameter type | Type   | Format | Description                                                                                             |
-|:----------|:---------------|:-------|:-------|:--------------------------------------------------------------------------------------------------------|
-| projectId | path           | string |        | The project identifier, e.g. "movieDb". Found in the project overview screen of the management console. |
-| roleId    | path           | GUID   |        | The role identifier.                                                                                    |
+### Example
 
-### Example request
-
-```json
-PUT: /api/management/projects/movieDb/security/roles/71b48d24-7f65-457d-bd51-cba977b74b74
-
-{
-    "name": {
+```js
+let role = {
+    "id": "71b48d24-7f65-457d-bd51-cba977b74b74",
+       "name": {
         "en-GB": "Movie Editors"
     },
     "description": {
@@ -39,19 +34,15 @@ PUT: /api/management/projects/movieDb/security/roles/71b48d24-7f65-457d-bd51-cba
         "groups": [ "Movie Editors" ],
         "apiKeys": [ "Movie Import" ]
     }
-}
+};
+client.roles.update(role)
+  .then(result => {      
+    console.log('API call result: ', result);              
+  })
+  .catch(error => {
+    console.log('API call fetch error: ', error);      
+});
 ```
-
-### Response message
-
-| HTTP status code | Reason              | Response model                   |
-|:-----------------|:--------------------|:---------------------------------|
-| 200              | Success             | [Role](/model/role.md)           |
-| 401              | Unauthorized        | [Error](/key-concepts/errors.md) |
-| 403              | Forbidden           | [Error](/key-concepts/errors.md) |
-| 404              | NotFound            | [Error](/key-concepts/errors.md) |
-| 422              | ValidationError     | [Error](/key-concepts/errors.md) |
-| 500              | InternalServerError | [Error](/key-concepts/errors.md) |
 
 ### Validations
 

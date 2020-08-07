@@ -1,32 +1,26 @@
 ## List roles
-List roles by project Id.
+Role resources can be retrieved as a paged list by passing an optional [PageOptions](/model/page-options.md) object as an argument.
 
-<span class="label label--get">GET</span> /api/management/projects/**{projectId}**/security/roles
+***list(options?: PageOptions): Promise&lt;PagedList&lt;Role&gt;&gt;***
 
-### Parameters
+## Returns
 
-| Name      | Parameter type | Type   | Format  | Description                                                                                             |
-|:----------|:---------------|:-------|:--------|:--------------------------------------------------------------------------------------------------------|
-| projectId | path           | string |         | The project identifier, e.g. "movieDb". Found in the project overview screen of the management console. |
-| pageIndex | query          | number | integer | The index of the page                                                                                   |
-| pageSize  | query          | number | integer | The number of results per page. The default is 25.                                                      |
+A Promise that will resolve with a [PagedList](/model/paged-list.md) that contains an array of [Role](/model/role.md) objects.
 
-### Example request
+## Example
 
-```http
-Accept: application/json
-GET: /api/management/projects/movieDb/security/roles?pageIndex=1&pageSize=5
+```js
+client.roles.list({
+        pageIndex: 1, 
+        pageSize: 5
+  })
+  .then(result => {      
+    console.log('API call result: ', result);              
+  })
+  .catch(error => {
+    console.log('API call error: ', error);      
+});
 ```
-
-### Response message
-
-| HTTP status code | Reason              | Response model                          |
-|:-----------------|:--------------------|:----------------------------------------|
-| 200              | Success             | [PagedList&lt;Role&gt;](/model/role.md) |
-| 401              | Unauthorized        | [Error](/key-concepts/errors.md)        |
-| 403              | Forbidden           | [Error](/key-concepts/errors.md)        |
-| 404              | NotFound            | [Error](/key-concepts/errors.md)        |
-| 500              | InternalServerError | [Error](/key-concepts/errors.md)        |
 
 ### Validations
 

@@ -1,30 +1,24 @@
 ## Get a role
 
-Gets a role by its Id.
+Gets a role by its id.
 
-<span class="label label--get">GET</span> /api/management/projects/**{projectId}**/security/roles/**{roleId}**
+***get(id: string): Promise&lt;Role&gt;***
 
-### Parameters
+### Returns
+A Promise that will resolve with a [Role](/model/role.md) object.
 
-| Name      | Parameter type | Type   | Format | Description                                                                                             |
-|:----------|:---------------|:-------|:-------|:--------------------------------------------------------------------------------------------------------|
-| projectId | path           | string |        | The project identifier, e.g. "movieDb". Found in the project overview screen of the management console. |
-| roleId    | path           | string | GUID   | The role identifier.                                                                                    |
+### Example
 
-### Example request
-
-```http
-GET: /api/management/projects/movieDb/security/roles/71f73a9b-2a13-4d63-bcc1-e8ee5047b01c
+```js
+client.roles.get('c31111e7-76f7-46dd-93fb-cbf81a853a37')
+  .then(result => {      
+    console.log('API call result: ', result);              
+  })
+  .catch(error => {
+    console.log('API call fetch error: ', error);      
+});
 ```
 
-### Response message
-
-| HTTP status code | Reason              | Response model                   |
-|:-----------------|:--------------------|:---------------------------------|
-| 200              | Success             | [Role](/model/role.md)           |
-| 403              | Forbidden           | [Error](/key-concepts/errors.md) |
-| 404              | NotFound            | [Error](/key-concepts/errors.md) |
-| 500              | InternalServerError | [Error](/key-concepts/errors.md) |
 
 ### Validations
 
