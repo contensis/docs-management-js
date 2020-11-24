@@ -7,23 +7,53 @@ description: API instantiation describes how to configure and use the client API
 ## Installing and importing the client *npm* package
 
 The Contensis JS Management API client is delivered as an [*npm*](https://www.npmjs.com/package/contensis-management-api) package, with publicly available [source code](https://github.com/contensis/contensis-management-api) and [examples](https://github.com/contensis/contensis-management-api-examples).  
-The client package mainly targets Node.js as a runtime platform and should be used in a server side context (e.g. a Node.js console application, an Express.js web application).
+The client package can be used in a modern browser, in Node.js or as cross-platform client (e.g. a React.js application, a Node.js console application, an Express.js web application, a JavaScript or TypeScript library).
 
 > ### Note
 > Before following the rest of the examples we assume you have an existing Node.js or Express.js application that is already created, that targets Node.js >= 10 and uses the *CommonJS* module system (you can also use native JavaScript modules - see [examples](https://github.com/contensis/contensis-management-api-examples)).  
-> The Contensis JS Management API client is using the *fetch* API to maintain consistency with the Contensis JS Delivery API client. The *fetch* API is not a native Node.js API and it is loaded automatically from the *node-fetch* npm package when the Contensis JS Management API client runs in a Node.js environment (if it runs in a browser enviroment the native *fetch* API will be used instead).  
+> The Contensis JS Management API client is using the *fetch* API to maintain consistency with the Contensis JS Delivery API client. The *fetch* API is not a native Node.js API and it is loaded from the *node-fetch* npm package when the Contensis JS Management API client runs in a Node.js environment (if it runs in a browser enviroment the native *fetch* API will be used instead).
 
-To install the required packages for the Contensis JS Management API client please run the following Node.js command line:
+To install the required packages for the Contensis JS Management API client please run the following Node.js command:
 ```
 npm install contensis-management-api
 ```
-To import this package your JavaScript code file should have the following line at the top:
+
+Import default *Client* if you are using *CommonJS* modules:
 ```js
 const Client = require('contensis-management-api').Client;
 ```
-## Creating and using the client instance 
 
-All operations for the API hang off the `Client` type, which is created using the static method call `Client.create(options)`. The `options` object represents the shared configuration that will be used by all Management API calls and is of type [Config](/model/config.md):
+Import the default *Client* if you are using native JavaScript modules:
+```js
+import { Client } from 'contensis-management-api';
+```
+
+The default *Client* class exported in the *contensis-management-api* package targets primarily a modern browser and assumes the *fetch* API is already made available.
+
+As an alternative you can use the *UniversalClient* class that ensures *fetch* API is always made available regardless if you are in a browser context or a Node.js context.
+
+Import *UniversalClient* if you are using *CommonJS* modules:
+```js
+const UniversalClient = require('contensis-management-api/lib/client').UniversalClient;
+```
+Import *UniversalClient* if you are using native JavaScript modules:
+```js
+import { UniversalClient } from 'contensis-management-api/lib/client';
+```
+ Some Contensis JS Management API functionality is only available in a Node.js environment (e.g. creating and updating assets). In this scenario you need to use the *NodejsClient* class ensures *fetch* API is made available. 
+  
+Import *NodejsClient* if you are using *CommonJS* modules:
+```js
+const NodejsClient = require('contensis-management-api/lib/client').NodejsClient;
+```
+
+Import *NodejsClient* if you are using native JavaScript modules:
+```js
+import { NodejsClient } from 'contensis-management-api/lib/client';
+```
+ ## Creating and using the client instance 
+
+All operations for the API hang off the `Client` type (or `UniversalClient` and `NodejsClient` if you are using those), which is created using the static method call `Client.create(options)`. The `options` object represents the shared configuration that will be used by all Management API calls and is of type [Config](/model/config.md):
 
 ```js
 const client = Client.create({
@@ -38,9 +68,11 @@ const client = Client.create({
 
 client.contentTypes.list()
   .then(result => {      
-      console.log('API call result: ', result);              
+      console.log('API call result: ', result);        
+      return result;      
   })
   .catch(error => {
     console.log('API call fetch error: ', error);      
+    throw error;
   });
 ```
