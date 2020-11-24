@@ -7,7 +7,7 @@ description: A user's password can be updated with a call that includes the user
 A user can update their password with a call that includes a new password and the user's current password in a parameter defined in [UserUpdatePasswordOptions](/model/user-update-password-options.md).  
 A member of the *System Administrators* group can update the password without the need to provide the existing password.
 
- ***updatePassword(options: User): Promise&lt;UserUpdatePasswordOptions&gt;***
+ ***updatePassword(options: UserUpdatePasswordOptions): Promise&lt;void&gt;***
 
 ## Remarks
 
